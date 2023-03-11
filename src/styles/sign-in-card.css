@@ -1,0 +1,19 @@
+.sign-in-card {
+    display: flex;
+    padding: 16px;
+}
+
+.sign-in-card__One {
+    max-width: 40%;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+.sign-in-card__One  img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.sign-in-card__Two {
+    width: 100%;
+}
