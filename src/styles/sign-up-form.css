@@ -1,0 +1,30 @@
+.sign-up-form {
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-form__Title{
+    text-align: center;
+    color: #3BE4E9;
+}
+
+.sign-up-form__TsC {
+    font-size:x-small;
+
+}
+
+.sign-up-form__Others {
+    text-align: center;
+    font-size: small;
+}
+
+.sign-up-form__TsC  a {
+    color: #3BE4E9;
+    text-decoration: none;
+}
+
+.sign-up-form__Others  a  {
+    color: #3BE4E9;
+    text-decoration: none;
+}
