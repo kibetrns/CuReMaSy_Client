@@ -2,6 +2,7 @@ import { useState } from "react"
 import InputContainer from "../../components/input-container.component"
 import "../../styles/sign-up-form.css"
 import CustomGeneralBtn from "../../components/custom-general-btn.component"
+import { Link } from "react-router-dom"
 
 
 const SignUpForm = () => {
@@ -109,7 +110,7 @@ const SignUpForm = () => {
             />
 
             <p className="sign-up-form__Others">
-                Already have an account? <a href="#"><span>Login now</span></a>
+                Already have an account? <Link to={`sign-in`}><span>Login now</span></Link>
             </p>
           
         </div>
