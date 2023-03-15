@@ -1,0 +1,30 @@
+.navigation-rail {
+    width:fit-content;
+    /* position:fixed; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navigation-rail__Top {
+
+}
+.navigation-rail__Top hr {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.company-details {
+    display: flex;
+    align-items: center;
+}
+
+.company-details  h2 {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-rail__Bottom {
+
+}

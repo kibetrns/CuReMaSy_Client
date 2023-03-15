@@ -1,0 +1,14 @@
+.main-entry-page {
+    width: 100vw;
+    height: 98vh;
+    position: fixed;
+    display: flex;
+    gap: 4%;
+}
+
+
+.main-entry-page__Supporting-Content {
+    width: 100%;
+    background-color: #D9D9D9;
+   
+}
