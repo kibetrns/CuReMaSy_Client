@@ -111,6 +111,7 @@ const SignUpForm = () => {
 
             <p className="sign-up-form__Others">
                 Already have an account? <Link to={`sign-in`}><span>Login now</span></Link>
+
             </p>
           
         </div>

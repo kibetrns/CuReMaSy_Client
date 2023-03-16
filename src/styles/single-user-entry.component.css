@@ -1,0 +1,28 @@
+.single-user-entry {
+   width: 51vw;
+
+
+
+}
+
+.single-user-entry-content {
+    height: fit-content;
+    background-color: yellow;
+    width: 100%;
+    margin: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-holder {
+
+}
+.line {
+    margin-bottom: 222px;
+    color: white;
+    height: 1px;
+    background-color: white;
+}
+
+
