@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import InputContainer from "../../components/input-container.component"
 import "../../styles/sign-in-form.css"
 import CustomGeneralBtn from "../../components/custom-general-btn.component"
@@ -6,6 +7,7 @@ import CustomGeneralBtn from "../../components/custom-general-btn.component"
 
 const SignInForm = () => {
 
+    
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
 
@@ -18,11 +20,14 @@ const SignInForm = () => {
         setPasswordInput(event.target.value)
     }
 
+    const navigate = useNavigate()
+
 
     const handleClick = () => {
         console.log(
             `Input Fields are: ${emailInput}, ${passwordInput}`
         )
+        navigate('/dashboard')
     }
 
     const createAccountBtnStyle = {
@@ -76,7 +81,7 @@ const SignInForm = () => {
             />
 
             <p className="sign-up-form__Others">
-                Don't have an account? <a href="#"><span>Login now</span></a>
+                Don't have an account? <Link to="/"><span>Sign Up now</span></Link>
             </p>
           
         </div>

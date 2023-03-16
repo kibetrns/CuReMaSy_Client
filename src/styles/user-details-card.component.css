@@ -1,0 +1,27 @@
+.user-details {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    cursor: pointer;
+}
+
+.image-container {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+
+}
+
+.full-name {
+    margin-bottom: 0%;
+
+}
+
+.user-name {
+    font-weight: lighter;
+    
+
+}
