@@ -1,30 +1,88 @@
 import "../../styles/dashboard-page.css";
 import NavigationRail from "../../components/navigation-rail.component";
-import NewCustTodayCard from "../../components/helper-display-card-content.component";
 import DummyImage from "../../assets/hans-eiskonen-8Pm_A-OHJGg-unsplash.jpg";
 import HelperDisplayCard from "../../components/helper-message-card.component";
-import HelperDisplayCardContent from "../../components/helper-display-card-content.component";
+import HelperDisplayCardContentStyle from "../../components/helper-display-card-content.component";
+import UserDetails from "../../components/user-details-card.component";
 import {
-  LineChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Legend,
+} from "chart.js";
+import { Doughnut, Line } from "react-chartjs-2";
+
+ChartJS.register(
+  ArcElement,
   Tooltip,
   Legend,
-  Line,
-  PieChart,
-  Pie,
-} from "recharts";
-import UserDetails from "../../components/user-details-card.component";
-import SingleUserEntry from "../../components/single-user-entry.component";
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title
+);
+
+const data02 = {
+  labels: ["Inactive Accounts", "Active Accounts"],
+  datasets: [
+    {
+      data: [90, 1021],
+      backgroundColor: ["#3BE4E9", "#848E0F"],
+    },
+  ],
+  borderWidth: 1,
+};
+
+const lineChartOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+};
+const labels = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+const data03 = {
+  labels,
+  datasets: [
+    {
+      label: "No. of Customers",
+      backgroundColor: "#D9D9D9",
+      borderColor: "#848E0F",
+      data: [152, 33, 77, 250, 129, 184],
+    },
+  ],
+};
 
 const DashBoardPage = () => {
   const pieChartStyle = {
     width: "19vw",
     height: "19vw",
+    maxHeight: "100%",
+    maxWidth: "100%",
   };
 
-  const helperDisplayCardContent = {
+  const helperDisplayCardContentStyle = {
     padding: "0.5% 2%",
     marginBottom: "10%",
     backgroundColor: "white",
@@ -42,72 +100,17 @@ const DashBoardPage = () => {
     borderRadius: "50%",
   };
 
-  const rowStyle = {
-    borderBottom: "1px solid white",
-  };
-
-  const data01 = [
-    {
-      name: "Group A",
-      value: 400,
-    },
-    {
-      name: "Group B",
-      value: 300,
-    },
-    {
-      name: "Group C",
-      value: 300,
-    },
-    {
-      name: "Group D",
-      value: 200,
-    },
-    {
-      name: "Group E",
-      value: 278,
-    },
-    {
-      name: "Group F",
-      value: 189,
-    },
-  ];
-  const data02 = [
-    {
-      name: "Group A",
-      value: 2400,
-    },
-    {
-      name: "Group B",
-      value: 4567,
-    },
-    {
-      name: "Group C",
-      value: 1398,
-    },
-    {
-      name: "Group D",
-      value: 9800,
-    },
-    {
-      name: "Group E",
-      value: 3908,
-    },
-    {
-      name: "Group F",
-      value: 4800,
-    },
-  ];
+  //TODO("do the styling when a particulat row is clicked")
+  const rowStyle = {};
 
   const listOfComponentsTop = [
     {
       id: 1,
       component: (
-        <HelperDisplayCardContent
+        <HelperDisplayCardContentStyle
           title={"New Customers Today"}
           value={7}
-          // component={<img src={DummyImage} style={pieChartStyle}></img>}
-          helperDisplayCardContent={helperDisplayCardContent}
+          helperDisplayCardContentStyle={helperDisplayCardContentStyle}
         />
       ),
     },
@@ -115,98 +118,54 @@ const DashBoardPage = () => {
     {
       id: 2,
       component: (
-        <HelperDisplayCardContent
+        <HelperDisplayCardContentStyle
           title={"Active Customers"}
           value={3576}
-          // component={<img src={DummyImage} style={pieChartStyle}></img>}
-          helperDisplayCardContent={helperDisplayCardContent}
+          helperDisplayCardContentStyle={helperDisplayCardContentStyle}
         />
       ),
     },
   ];
+
+  /*TODO("fix the pie chart and its labels to show to the left") */
 
   const listOfComponentsBottom = [
     {
       id: 1,
       component: (
-        <HelperDisplayCardContent
+        <HelperDisplayCardContentStyle
           title={"Total Customers"}
           value={1111}
-          component={
-            <PieChart width={730} height={250} style={pieChartStyle}>
-              <Pie
-                data={data02}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                fill="#82ca9d"
-                label
-              />
-            </PieChart>
-          }
-          helperDisplayCardContent={helperDisplayCardContent}
+          component={<Doughnut data={data02} style={pieChartStyle} />}
+          helperDisplayCardContentStyle={helperDisplayCardContentStyle}
         />
       ),
-    },
-  ];
-
-  const data = [
-    {
-      name: "Sun",
-      customerCount: 4000,
-    },
-    {
-      name: "Mon",
-      customerCount: 3000,
-    },
-    {
-      name: "Tue",
-      customerCount: 2000,
-    },
-    {
-      name: "Wed",
-      customerCount: 2780,
-    },
-    {
-      name: "Thur",
-      customerCount: 1890,
-    },
-    {
-      name: "Friday",
-      customerCount: 2390,
-    },
-    {
-      name: "Sat",
-      customerCount: 3490,
     },
   ];
 
   const listOfTopCustomers = [
     {
       dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
-      fullName: "Maggie Doe",
-      userName: "@gi_doe",
+      fullName: "Jane Doe",
+      userName: "@janny",
       secondInput: 9999,
       thirdInput: `Ksh ${8433}`,
       icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
-      fullName: "Maggie Doe",
-      userName: "@gi_doe",
-      secondInput: 9999,
-      thirdInput: `Ksh ${8433}`,
+      fullName: "Jane Doe",
+      userName: "@janny",
+      secondInput: 8888,
+      thirdInput: `Ksh ${6262}`,
       icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
-      fullName: "Maggie Doe",
-      userName: "@gi_doe",
+      fullName: "Jane Doe",
+      userName: "@janny",
       secondInput: 9999,
-      thirdInput: `Ksh ${8433}`,
+      thirdInput: `Ksh ${6262}`,
       icon: <span class="material-symbols-outlined">more_vert</span>,
     },
   ];
@@ -214,10 +173,6 @@ const DashBoardPage = () => {
   const handleMoreVertClick = () => {
     window.alert("clicked");
   };
-
-  /*TODO("Add the bottom line to the single entry of customer in the table")
-    TODO("Fix the pie chart not showing in its parent div")
-  */
 
   return (
     <div className="main-entry-page dashboard-page">
@@ -232,24 +187,7 @@ const DashBoardPage = () => {
             />
           </div>
           <div className="item-2-top">
-            <LineChart
-              width={700}
-              height={250}
-              data={data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="customerCount"
-                stroke="#848E0F"
-                strokeWidth={3}
-              />
-            </LineChart>
+            <Line data={data03} options={lineChartOptions} />
           </div>
         </div>
         <div className="supporting-content-bottom">
@@ -265,7 +203,7 @@ const DashBoardPage = () => {
 
             <table className="top-customers-table">
               <tbody>
-                <tr>
+                <tr className="top-customers-table-header-row">
                   <th></th>
                   <th>Name</th>
                   <th>Points</th>
