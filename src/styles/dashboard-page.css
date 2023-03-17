@@ -20,6 +20,8 @@
     display: grid;
     height: 100%;
     column-gap: 4% ;
+    grid-template-columns: 20vw ;
+
 }
 
 .item-1-top {
@@ -37,6 +39,8 @@
     grid-row: 0 / 1; 
     display:  grid; 
     column-gap: 4% ;
+    grid-template-columns: 20vw ;
+
 }
 
 .item-1-bottom {
@@ -46,15 +50,24 @@
 
 .item-2-bottom {
     grid-column: 2 / 3;
-    grid-row: 0 / 1
+    grid-row: 0 / 1;
 }
 
 .header-title {
     margin-top: 0%;
 }
 
+.top-customers-table-header-row {
+    border-bottom: 1px solid white;
+}
+
 .top-customers-table {
     width: 51vw;
+    border-collapse: collapse;
+}
+.top-customers-table td {
+    border-bottom: 1px solid white;
+
 }
 
 th {
