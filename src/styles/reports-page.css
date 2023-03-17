@@ -1,0 +1,49 @@
+.reports-page-supporting-content {
+    padding: 1.7% 2%;
+}
+
+.main-entry-page__Supporting-Content {
+    display: grid;
+    gap: 20px;
+}
+
+.supporting-page-title-reports {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;  
+    margin-top: 0% ;
+    margin-bottom: 0%;
+}
+
+.tab-item-rail-reports {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.item-1-top-reports {
+    grid-column: 0 / 1 ;
+    width: 20vw;
+}
+
+.item-2-top-reports {
+    grid-column: 2 / 3;
+    grid-row: 0 / 1
+}
+
+.supporting-content-top-reports {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    display: grid;
+    height: 100%;
+    column-gap: 4% ;
+    grid-template-columns: 20vw ;
+}
+
+.item-1-bottom-reports {
+    grid-column: 1 / 1;
+    width: 20vw;
+}
+
+.item-2-bottom-reports {
+    grid-column: 2 / 3;
+    grid-row: 0 / 1
+}
