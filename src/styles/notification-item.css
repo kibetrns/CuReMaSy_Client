@@ -1,0 +1,22 @@
+.notificaions-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    height: fit-content;
+    margin-bottom: 2%;
+    padding: 0% 2%;
+}
+.notificaion-action {
+    display: flex;
+
+}
+
+.notification-action__Categories {
+    display: flex;
+}
+
+.approve-title {
+    margin-right: 32px;
+    margin-left: 32px;
+}
