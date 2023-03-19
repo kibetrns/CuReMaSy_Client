@@ -1,10 +1,13 @@
 .reports-page-supporting-content {
     padding: 1.7% 2%;
+    display: grid;
+    grid-template-rows: auto 1fr; 
 }
 
 .main-entry-page__Supporting-Content {
     display: grid;
     gap: 20px;
+
 }
 
 .supporting-page-title-reports {
@@ -12,11 +15,13 @@
     grid-row: 1 / 2;  
     margin-top: 0% ;
     margin-bottom: 0%;
+    height: fit-content;
 }
 
 .tab-item-rail-reports {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    height: fit-content;
 }
 
 .item-1-top-reports {
@@ -33,9 +38,15 @@
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     display: grid;
-    height: 100%;
-    column-gap: 4% ;
-    grid-template-columns: 20vw ;
+    height: fit-content;
+    margin-bottom: 8%;
+}
+
+.supporting-content-bottom-reports {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    display: grid;
+    height: fit-content;   
 }
 
 .item-1-bottom-reports {
