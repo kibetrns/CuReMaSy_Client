@@ -1,0 +1,29 @@
+.reports-filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reports-filter-left {
+    display: flex;
+    align-items: center;
+
+}
+.label-and-picker {
+    display: flex;
+}
+
+.reports-filter-left__Dates {
+    display: flex;
+}
+
+.date-labels {
+    margin: 8px;
+}
+
+#stardDate {
+    border: none;
+}
+
+#endDate {
+    border: none;
+}

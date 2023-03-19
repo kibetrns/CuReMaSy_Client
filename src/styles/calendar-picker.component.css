@@ -1,0 +1,6 @@
+.calendar-picker {
+    display: flex;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: white;
+}

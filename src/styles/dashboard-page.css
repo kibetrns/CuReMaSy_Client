@@ -40,7 +40,6 @@
     display:  grid; 
     column-gap: 4% ;
     grid-template-columns: 20vw ;
-
 }
 
 .item-1-bottom {
@@ -62,12 +61,12 @@
 }
 
 .top-customers-table {
-    width: 51vw;
+    width: 100%;
     border-collapse: collapse;
 }
+
 .top-customers-table td {
     border-bottom: 1px solid white;
-
 }
 
 th {
