@@ -46,19 +46,19 @@ const lineChartOptions = {
       position: "top",
     },
   },
-  scales: {
-    x: {
-      grid: {
-        display: false,
-      },
-    },
+  // scales: {
+  //   x: {
+  //     grid: {
+  //       display: false,
+  //     },
+  //   },
 
-    y: {
-      grid: {
-        display: false,
-      },
-    },
-  },
+  //   y: {
+  //     grid: {
+  //       display: false,
+  //     },
+  //   },
+  // },
 };
 const labels = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
