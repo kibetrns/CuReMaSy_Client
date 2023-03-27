@@ -1,3 +1,15 @@
+.inActiveNavItem {
+    text-decoration: none;
+    color: black;
+}
+.activeNavItem {
+    text-decoration: none;
+    color: black;
+}
+.activeNavItem .navigation-item {
+    background-color: #3BE4E9;
+}
+
 .navigation-item {
     cursor: pointer;
     display: flex;
@@ -17,6 +29,17 @@
     justify-content: center;
     align-items: center;
     
+}
+
+.navigation-item-icon img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .navigation-item__main {
@@ -42,6 +65,7 @@
 .navigation-item__bubble {
     background-color: #D9D9D9;
     padding: 8px;
+    margin: 1%;
     width: 16px;
     height: 16px;
     border-radius: 50%;

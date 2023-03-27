@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/pagination-nav.component.css";
 
+
 const PaginationNav = ({ onNextIconClick }, { onPrevIconClick }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(0);
   const [totalPageNumber, setTotalPageNumber] = useState(10);

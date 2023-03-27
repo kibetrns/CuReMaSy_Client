@@ -1,68 +1,67 @@
-.sales-page-supporting-content {
-    padding: 1.7% 2%;
+.users-page-supporting-content {
+    padding: 1.7%;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr; 
-    grid-gap: 1.7% 2%;
 }
 
-.sales-page-header {
+.main-entry-page__Supporting-Content {
+    display: grid;
+    gap: 20px;
+}
+
+.users-page-header {
     display: flex;
     align-items: baseline; 
     justify-content: space-between;
     grid-column: 1 / 2;
     grid-row: 1 / 1;
     margin-top: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 1%;
     height: fit-content;
 }
 
-.sales-refinment-container {
+.users-refinment-container {
     display: flex;
     justify-content: space-between;
     grid-column: 1 / 2;
-    align-self: start;
     grid-row: 2 / 3;
-    height: fit-content;
 }
 
-.sales-page-main {
+.users-page-main {
     grid-column: 1 / 2;
-    grid-row: 2 / 3; 
+    grid-row: 3 / 4; 
     display:  grid; 
     column-gap: 4% ;
 }
 
-
-.sales-table-header-row {
+.users-table-header-row {
     border-bottom: 1px solid white;
-    background-color: #d9d9d975;  
+    background-color: #d9d9d975;
 }
 
-.sales-table-header-row th {
-    padding: 2% 1%;
+.users-table-header-row th {
+    padding: 2% 0%;
 }
 
-.sales-table {
+.users-table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
     border-radius: 16px;
+}   
+
+.users-table tr {
+    transition: transform 0.2s ease;
 }
 
-.sales-table tr {
-    border: 0.5px solid gainsboro;
-    text-align: left;
-
+.users-table tr :hover {
+    transform: translateY(-5px);     
 }
 
-
-.sales-table td {
-    padding: 2% 0% 2% 0% ;
-    text-align: left;
-    border-radius: 16px;
-
+.users-table td {
+    border-bottom: 1px solid #D9D9D9;
 }
 
 th {
-    text-align: left; 
+    text-align: left;
 }

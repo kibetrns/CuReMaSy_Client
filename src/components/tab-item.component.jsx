@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+import "../styles/tab-item.component.css"
 
 const TabItem = ({title, titleStyle, tabItemStyle, onClick}) => {
 
@@ -7,7 +9,7 @@ const TabItem = ({title, titleStyle, tabItemStyle, onClick}) => {
 
     return(
         <div style={tabItemStyle} onClick={handleClick}>
-            <h5 stylt={titleStyle}>{title}</h5>
+            <h5 style={titleStyle}>{title}</h5>
         </div>
     )
 }

@@ -9,6 +9,7 @@ const SettingsPage = () => {
             <NavigationRail />
             <div className="main-entry-page__Supporting-Content settings-page">
                 <h1>Settings</h1>
+                <h1 style={{textAlign: "center"}} > COMING SOON</h1>
             </div> 
         </div>
     )

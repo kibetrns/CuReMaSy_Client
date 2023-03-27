@@ -7,90 +7,74 @@ import UserDetails from "../../components/user-details-card.component";
 import PaginationNav from "../../components/pagination-nav.component";
 import CustomGeneralBtn from "../../components/custom-general-btn.component";
 import SearchBar from "../../components/search-bar.component";
-import ProfileCardContent from "../../components/profile-card-content.component";
-import { useState } from "react";
 import MoreOptionsModal from "../../components/more-options-modal";
+import { useState } from "react";
 
+const usersPage = () => {
+  const UserDetailsImageStyle = {
+    height: "48px",
+    width: "48px",
+    borderRadius: "50%",
+  };
+  const btnStyle = {
+    backgroundColor: "black",
+    transitionDuration: "0.4s",
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer",
+    borderRadius: "8px",
+    padding: "8px 16px",
+    color: "white",
+  };
 
-const CustomersPage = () => {
+  //TODO("do the styling when a particulat row is clicked")
+  const rowStyle = {};
 
-    const userDetailsImageStyle = {
-      height: "48px",
-      width: "48px",
-      borderRadius: "50%",
-    };
-    const btnStyle = {
-      backgroundColor: "black",
-      transitionDuration: "0.4s",
-      display: "flex",
-      alignItems: "center",
-      cursor: "pointer",
-      borderRadius: "8px",
-      padding: "8px 16px",
-      color: "white",
-    };
-  
-    //TODO("do the styling when a particulat row is clicked")
-    const rowStyle = {};
-  
-
-  const listOfCustomers = [
+  const listOfStaff = [
     {
       id: 1,
-      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${8433}`,
     },
     {
       id: 2,
 
-      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 8888,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${6262}`,
     },
     {
       id: 3,
 
-      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${6262}`,
     },
     {
       id: 4,
 
-      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${2241}`,
     },
   ];
-
-  const [showMoreOptionsModal, setMoreOptionsModal] = useState(false);
-  const [selectedCustomerId, setselectedCustomerId] = useState(null);
-
-
-
-  const handleMoreVertClick = (userId) => {
-    setselectedCustomerId(userId);
-    setMoreOptionsModal(!showMoreOptionsModal);
-  };
-
-
-  const handleOnDeleteClick = (itemId) => {
-    window.alert(itemId);
-  };
-
-  const handleOnEditClick = (itemId) => {
-    window.alert(itemId);
-  };
-
 
   const handleHeaderMoreVerticalClicked = () => {
     window.alert("clicked header more vert ..");
@@ -100,27 +84,44 @@ const CustomersPage = () => {
     window.alert(`Clicked user with id of ${id}`);
   };
 
-  const handleAddustomerClick =() => {
+  const handleAddustomerClick = () => {
     window.alert("clicked");
-  }
+  };
 
+  const [showMoreOptionsModal, setMoreOptionsModal] = useState(false);
+  const [selectedStaffId, setselectedStaffId] = useState(null);
 
+  const handleMakeSaleClicked = () => {
+    window.alert("clicked");
+  };
 
+  const handleMoreVertClick = (userId) => {
+    setselectedStaffId(userId);
+    setMoreOptionsModal(!showMoreOptionsModal);
+  };
+
+  const handleOnDeleteClick = (itemId) => {
+    window.alert(itemId);
+  };
+
+  const handleOnEditClick = (itemId) => {
+    window.alert(itemId);
+  };
 
   return (
     <div className="main-entry-page users-page">
       <NavigationRail />
-      
+
       <div className="main-entry-page__Supporting-Content users-page-supporting-content">
         <div className="users-page-header">
-        <h1 className="users-page-header"> Customers </h1>
-        
-        <CustomGeneralBtn
-          btnTitle={"Add Customer"}
-          btnIcon={<span class="material-symbols-outlined">add</span>}
-          style={btnStyle}
-          onClick={handleAddustomerClick}
-        />
+          <h1> Staffs </h1>
+
+          <CustomGeneralBtn
+            btnTitle={"Add Staff"}
+            btnIcon={<span class="material-symbols-outlined">add</span>}
+            style={btnStyle}
+            onClick={handleAddustomerClick}
+          />
         </div>
         <div className="users-refinment-container">
           <div>TODO</div>
@@ -133,8 +134,8 @@ const CustomersPage = () => {
               <tr className="users-table-header-row">
                 <th></th>
                 <th>Name</th>
-                <th>Earned Points</th>
-                <th>Total Purchase Amount</th>
+                <th>Account Creation</th>
+                <th>Total Sale Amount</th>
                 <th>
                   <span
                     class="material-symbols-outlined"
@@ -146,7 +147,7 @@ const CustomersPage = () => {
                 </th>
                 <th></th>
               </tr>
-              {listOfCustomers.map((user) => (
+              {listOfStaff.map((user) => (
                 <tr key={user.id} style={rowStyle}>
                   <td>
                     <input type="checkbox" />
@@ -156,13 +157,13 @@ const CustomersPage = () => {
                       dp={user.dp}
                       fullName={user.fullName}
                       userName={user.userName}
-                      UserDetailsImageStyle={userDetailsImageStyle}
+                      UserDetailsImageStyle={UserDetailsImageStyle}
                       userId={user.id}
                       onClick={handleUserDetailClick}
                     />
                   </td>
-                  <td>{user.secondInput}</td>
-                  <td style={{fontWeight: "bold"}}>{user.thirdInput}</td>
+                  <td>{user.accountCreationDate}</td>
+                  <td>{user.totalSalesMade}</td>
                   <td>
                     <span
                       class="material-symbols-outlined"
@@ -171,10 +172,9 @@ const CustomersPage = () => {
                     >
                       more_vert
                     </span>
-                  
-                    
+                    ,
                   </td>
-                  {selectedCustomerId === user.id && showMoreOptionsModal && (
+                  {selectedStaffId === user.id && showMoreOptionsModal && (
                     <MoreOptionsModal
                       itemId={user.id}
                       onDeleteClick={handleOnDeleteClick}
@@ -187,14 +187,9 @@ const CustomersPage = () => {
           </table>
         </div>
         <PaginationNav />
-
-
-
-
-       
       </div>
     </div>
   );
 };
 
-export default CustomersPage;
+export default usersPage;

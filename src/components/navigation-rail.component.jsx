@@ -2,6 +2,7 @@ import NavigationItem from "./navigation-item.component";
 import "../styles/navigation-rail.component.css"
 import CompanyLogo from "../assets/pngtree-tree-logo.jpg"
 import { Link , useNavigate } from "react-router-dom"
+import DummyImage2 from "../assets/milad-fakurian-PGdW_bHDbpI-unsplash.jpg"
 
 
 const NavigationRail = () => {
@@ -19,37 +20,37 @@ const NavigationRail = () => {
     {
         icon:<span class="material-symbols-outlined">dashboard</span>,
         title: "Dashboard",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">sell</span>,
         title: "Sales",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">inventory_2</span>,
         title: "Products",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">groups</span>,
         title: "Customers",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">show_chart</span>,
         title: "Reports",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">group</span>,
         title: "Staffs",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     }
 ]
@@ -62,20 +63,20 @@ const bottomRailItems = [
     {
         icon:<span class="material-symbols-outlined">notifications</span>,
         title: "Notifications",
-        navItemAlertCount: 9,
+        navItemAlertCount: 2,
         onClick: handleNavItemClick
     },
     {
         icon:<span class="material-symbols-outlined">settings</span>,
         title: "Settings",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     },
     {
-        icon:<span class="material-symbols-outlined">dashboard</span>,
+        icon: <img src={DummyImage2} alt="" />,
         title: "Maggie Doe",
         subtittle: "@gi_doe",
-        navItemAlertCount: 9,
+        navItemAlertCount: 0,
         onClick: handleNavItemClick
     }
 ]

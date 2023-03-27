@@ -2,17 +2,11 @@ import "../../styles/products-page.css";
 import NavigationRail from "../../components/navigation-rail.component";
 import CustomGeneralBtn from "../../components/custom-general-btn.component";
 import PaginationNav from "../../components/pagination-nav.component";
-
+import MoreOptionsModal from "../../components/more-options-modal";
+import { useState } from "react";
 const ProductsPage = () => {
 
-  /*TODO("complete the actions to be taken by these functions ")*/
-  const handleAddCategory = () => {};
 
-  const handleAddProduct = () => {};
-
-  const handleMoreVertClick = () => {
-    window.alert("clicked");
-  };
 
   const btnStyleCateg = {
     backgroundColor: "black",
@@ -48,7 +42,6 @@ const ProductsPage = () => {
       productCategories: "Auto Mobile, Car Parts",
       productDescription: "odio pellentesque diam volutpat commodo .....",
       productPrice: "Ksh 19022",
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       productId: "20230313112547-c0cbcfa33da4",
@@ -57,7 +50,6 @@ const ProductsPage = () => {
       productCategories: "Dairy",
       productDescription: "odio pellentesque diam volutpat commodo .....",
       productPrice: "Ksh 89",
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       productId: "20230313112547-c0cbcfa33da3",
@@ -66,7 +58,6 @@ const ProductsPage = () => {
       productCategories: "Auto Mobile, Car Parts",
       productDescription: "odio pellentesque diam volutpat commodo .....",
       productPrice: "Ksh 19022",
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       productId: "20230313112547-c0cbcfa33da2",
@@ -75,7 +66,6 @@ const ProductsPage = () => {
       productCategories: "Auto Mobile, Car Parts",
       productDescription: "odio pellentesque diam volutpat commodo .....",
       productPrice: "Ksh 19022",
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       productId: "20230313112547-c0cbcfa33da3",
@@ -84,15 +74,36 @@ const ProductsPage = () => {
       productCategories: "Electronics, Home Appliances",
       productDescription: "odio pellentesque diam volutpat commodo .....",
       productPrice: "Ksh 11022",
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
 
   ]
 
-  
+  const [showMoreOptionsModal, setMoreOptionsModal] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
+
+
+  /*TODO("complete the actions to be taken by these functions ")*/
+  const handleAddCategory = () => {};
+
+  const handleAddProduct = () => {};
+
+    
+  const handleMoreVertClick = (productId) => {
+    setSelectedProductId(productId);
+    setMoreOptionsModal(!showMoreOptionsModal);
+  };
+
+  const handleOnDeleteClick =  (itemId) => {
+    window.alert(itemId)
+  }
+
+  const handleOnEditClick =  (itemId) => {
+    window.alert(itemId)
+  }
 
   return (
-    <div className="main-entry-page products-page">
+   
+   <div className="main-entry-page products-page">
       <NavigationRail />
       <div className="main-entry-page__Supporting-Content products-page-supporting-content">
         <div className="products-page-header">
@@ -120,11 +131,10 @@ const ProductsPage = () => {
           </div>
         </div>
         <div className="products-page-main">
-
           <table className="products-table">
               <tbody>
-                <tr className="products-header-row">
-                  <th>Product id</th>
+                <tr className="products-table-header-row">
+                  <th style={{padding:"0% 0% 0% 1%"}} >Product id</th>
                   <th>Date Updated</th>
                   <th>Product Name</th>
                   <th>Product Categories</th>
@@ -135,7 +145,7 @@ const ProductsPage = () => {
                 </tr>
                 {listOfProducts.map((item) => (
                   <tr key={item.productId} style={rowStyle}>
-                    <td>{item.productId}</td>
+                    <td style={{padding:"0% 0% 0% 1%"}}>{item.productId}</td>
                     <td>{item.dateUploaded}</td>
                     <td>{item.productName}</td>
                     <td>{item.productCategories}</td>
@@ -143,11 +153,13 @@ const ProductsPage = () => {
                     <td style={{fontWeight: "bold"}}>{item.productPrice}</td>
 
                     <td
-                      style={{ cursor: "pointer" , color:"white"}}
-                      onClick={handleMoreVertClick}
+                      style={{ cursor: "pointer", color:"gray"}}
+                      onClick={() => handleMoreVertClick(item.productId)}
                     >
-                      {item.icon}
+                      <span class="material-symbols-outlined">more_vert</span>
                     </td>
+                    { selectedProductId === item.productId && showMoreOptionsModal && <MoreOptionsModal itemId={item.productId} onDeleteClick={handleOnDeleteClick} onEditClick={handleOnEditClick}/>}
+
                   </tr>
                 ))}
               </tbody>

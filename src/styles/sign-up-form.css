@@ -4,6 +4,14 @@
     flex-direction: column;
 }
 
+.auth-header {
+    display: flex;
+    margin-bottom: 4%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .sign-up-form__Title{
     text-align: center;
     color: #3BE4E9;

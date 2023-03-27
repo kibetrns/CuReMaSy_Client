@@ -1,9 +1,9 @@
 import '../styles/image-container.component.css'
 
-const ImageCardContainer = ({element}) => {
+const ImageCardContainer = ({element, imageHolderStyle}) => {
 
     return (
-        <div className="image-container">
+        <div  style={imageHolderStyle}>
             {element}
         </div>
     )

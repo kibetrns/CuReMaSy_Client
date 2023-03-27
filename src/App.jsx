@@ -9,7 +9,7 @@ import DashBoardPage from './pages/dashboard/dashboard-page';
 import ProductsPage from './pages/products/products-page';
 import CustomersPage from './pages/customers/customers-page';
 import ReportsPage from './pages/repor/reports-page';
-import StaffsPage from './pages/staffs/staffs';
+import StaffsPage from './pages/staffs/staffs-page';
 import NotificationsPage from './pages/notifications/notifications-page';
 import SettingsPage from './pages/settin/settings-page';
 import CurrentUserProfilePage from './pages/curr-user-profile/current-user-profile-page';
@@ -29,7 +29,10 @@ function App() {
         <Route path="/dashboard" element={<DashBoardPage />} />
         <Route path="/sales" element={<SalesPage />} />
         <Route path="/products" element={<ProductsPage />} />
-        <Route path="/customers" element={<CustomersPage />} />
+        <Route path="/customers" element={<CustomersPage />} >
+          <Route path='/customers/sales-history?userId=${userId}' element={<CustomReportsSubPage />}/>
+
+          </Route>
         <Route path="/reports" element={<ReportsPage />} >
           <Route path='weekly' index element={<WeeklyReportsSubPage />} />
           <Route path='monthly' element={<MonthlyReportsSubPage />} />

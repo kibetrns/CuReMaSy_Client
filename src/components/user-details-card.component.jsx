@@ -1,9 +1,13 @@
 import "../styles/user-details-card.component.css"
 
-const UserDetails = ({dp, fullName, userName, }) => {
+const UserDetails = ({dp, fullName, userName, userId,  onClick }) => {
+
+    const handleClick = () => {
+        onClick(userId)
+    }
 
     return(
-        <div className="user-details">
+        <div className="user-details" onClick={handleClick}>
             <div className="image-container">
                 {dp}
             </div>

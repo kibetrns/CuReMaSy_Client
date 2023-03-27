@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import InputContainer from "../../components/input-container.component"
+import CompanyLogo from "../../assets/pngtree-tree-logo.jpg"
 import "../../styles/sign-in-form.css"
 import CustomGeneralBtn from "../../components/custom-general-btn.component"
 
@@ -43,18 +44,28 @@ const SignInForm = () => {
     const inputStyle = {
         width:'99%',
         backgroundColor:'#F1F1F1',
-        border:'none'
+        border:'none',
+        padding: '8px 0px'
+
     }
 
     const inputContainerStyle = {
-        marginBottom: '16px'
+        marginBottom: '16px',
+
     }
 
 
     return(
         <div className="sign-up-form">
 
+            <div className="auth-header">
+            <img src={CompanyLogo} alt=""  className="company-logo-item"/>
             <p className="sign-up-form__Title">Let's Go</p>
+
+            </div>
+
+
+
 
             <InputContainer 
                 labelTitle={"Email"}
@@ -68,21 +79,27 @@ const SignInForm = () => {
             <InputContainer
                 labelTitle={"Password"}
                 value={passwordInput}
-                type={"text"}
+                type={"password"}
                 inputStyle={inputStyle}
                 inputContainerStyle={inputContainerStyle}
                 onInputChange={handlePasswordInput}
             />
             
             <CustomGeneralBtn 
-                btnTitle={"Create Account"}
+                btnTitle={"Login"}
                 onClick={handleClick}
                 style={createAccountBtnStyle}
             />
 
+             <p className="sign-up-form__Others">
+               <Link to=""><span>Forgot Password</span></Link>
+            </p>
+
             <p className="sign-up-form__Others">
                 Don't have an account? <Link to="/"><span>Sign Up now</span></Link>
             </p>
+
+
           
         </div>
     )

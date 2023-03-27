@@ -8,10 +8,15 @@ const SignUpCard = () => {
 
     //TODO("Fix Image not filling the whole height of the sign-up-card__One div")
 
+    const imamgeHolderHolderStyle = {
+        maxHeight: "100%"
+    }
+
     return(
         <div className="sign-up-card">
             <div className="sign-up-card__One">
                 <ImageCardContainer 
+                    imamgeHolderHolderStyle = {imamgeHolderHolderStyle}
                     element= { <img src={mainCredentialsPic} alt={imagePlaceHolder} /> }
                 />
             </div>
