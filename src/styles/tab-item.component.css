@@ -1,0 +1,12 @@
+.inActiveTabItem {
+    text-decoration: none;
+    color: black;
+}
+.activeTabItem {
+    text-decoration: none;
+    color: black;
+}
+.activeTabItem > h5 {
+    border-bottom: #3BE4E9;
+}
+

@@ -7,7 +7,8 @@ import UserDetails from "../../components/user-details-card.component";
 import PaginationNav from "../../components/pagination-nav.component";
 import CustomGeneralBtn from "../../components/custom-general-btn.component";
 import SearchBar from "../../components/search-bar.component";
-
+import MoreOptionsModal from "../../components/more-options-modal";
+import { useState } from "react";
 
 const usersPage = () => {
   const UserDetailsImageStyle = {
@@ -29,15 +30,16 @@ const usersPage = () => {
   //TODO("do the styling when a particulat row is clicked")
   const rowStyle = {};
 
-  const listOfTopusers = [
+  const listOfStaff = [
     {
       id: 1,
       dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${8433}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 2,
@@ -46,8 +48,9 @@ const usersPage = () => {
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 8888,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${6262}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 3,
@@ -56,8 +59,9 @@ const usersPage = () => {
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${6262}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 4,
@@ -66,14 +70,11 @@ const usersPage = () => {
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
+      accountCreationDate: "March 10, 2023",
+      totalSalesMade: `Ksh ${77}`,
       thirdInput: `Ksh ${2241}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
   ];
-
-  const handleMoreVertClick = () => {
-    window.alert("clicked");
-  };
 
   const handleHeaderMoreVerticalClicked = () => {
     window.alert("clicked header more vert ..");
@@ -83,39 +84,49 @@ const usersPage = () => {
     window.alert(`Clicked user with id of ${id}`);
   };
 
-  const handleAddustomerClick =() => {
+  const handleAddustomerClick = () => {
     window.alert("clicked");
+  };
 
+  const [showMoreOptionsModal, setMoreOptionsModal] = useState(false);
+  const [selectedStaffId, setselectedStaffId] = useState(null);
 
-  }
+  const handleMakeSaleClicked = () => {
+    window.alert("clicked");
+  };
+
+  const handleMoreVertClick = (userId) => {
+    setselectedStaffId(userId);
+    setMoreOptionsModal(!showMoreOptionsModal);
+  };
+
+  const handleOnDeleteClick = (itemId) => {
+    window.alert(itemId);
+  };
+
+  const handleOnEditClick = (itemId) => {
+    window.alert(itemId);
+  };
 
   return (
     <div className="main-entry-page users-page">
       <NavigationRail />
-      
+
       <div className="main-entry-page__Supporting-Content users-page-supporting-content">
         <div className="users-page-header">
-        <h1 className="users-page-header"> Staffs </h1>
-        
-        <CustomGeneralBtn
-          btnTitle={"Add Staff"}
-          btnIcon={<span class="material-symbols-outlined">add</span>}
-          style={btnStyle}
-          onClick={handleAddustomerClick}
-        />
+          <h1> Staffs </h1>
 
-
+          <CustomGeneralBtn
+            btnTitle={"Add Staff"}
+            btnIcon={<span class="material-symbols-outlined">add</span>}
+            style={btnStyle}
+            onClick={handleAddustomerClick}
+          />
         </div>
         <div className="users-refinment-container">
-            <div>
-                TODO
-            </div>
-  <SearchBar 
-  placeholder={"Search By Username"}/>
-</div>
-   
-
-     
+          <div>TODO</div>
+          <SearchBar placeholder={"Search By e-mail"} />
+        </div>
 
         <div className="users-page-main">
           <table className="users-table">
@@ -123,8 +134,8 @@ const usersPage = () => {
               <tr className="users-table-header-row">
                 <th></th>
                 <th>Name</th>
-                <th>Points</th>
-                <th>Total Amount</th>
+                <th>Account Creation</th>
+                <th>Total Sale Amount</th>
                 <th>
                   <span
                     class="material-symbols-outlined"
@@ -134,8 +145,9 @@ const usersPage = () => {
                     more_vert
                   </span>
                 </th>
+                <th></th>
               </tr>
-              {listOfTopusers.map((user) => (
+              {listOfStaff.map((user) => (
                 <tr key={user.id} style={rowStyle}>
                   <td>
                     <input type="checkbox" />
@@ -150,14 +162,25 @@ const usersPage = () => {
                       onClick={handleUserDetailClick}
                     />
                   </td>
-                  <td>{user.secondInput}</td>
-                  <td>{user.thirdInput}</td>
-                  <td
-                    style={{ cursor: "pointer" }}
-                    onClick={handleMoreVertClick}
-                  >
-                    {user.icon}
+                  <td>{user.accountCreationDate}</td>
+                  <td>{user.totalSalesMade}</td>
+                  <td>
+                    <span
+                      class="material-symbols-outlined"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleMoreVertClick(user.id)}
+                    >
+                      more_vert
+                    </span>
+                    ,
                   </td>
+                  {selectedStaffId === user.id && showMoreOptionsModal && (
+                    <MoreOptionsModal
+                      itemId={user.id}
+                      onDeleteClick={handleOnDeleteClick}
+                      onEditClick={handleOnEditClick}
+                    />
+                  )}
                 </tr>
               ))}
             </tbody>

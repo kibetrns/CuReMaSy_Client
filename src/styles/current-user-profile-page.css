@@ -1,0 +1,15 @@
+.current-user-page-supporting-content{
+    padding: 1.7%;
+ 
+
+}
+
+.current-user-page-supporting-content-main {
+    display: flex;
+    justify-content: center;
+}
+
+.main-entry-page__Supporting-Content {
+    display: grid;
+    gap: 20px;
+}

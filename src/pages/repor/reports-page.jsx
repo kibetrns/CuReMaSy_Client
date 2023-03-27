@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/reports-page.css";
 import NavigationRail from "../../components/navigation-rail.component";
@@ -45,6 +45,14 @@ const ReportsPage = () => {
     marginRight: "4%",
     marginBottom: "-2%",
   };
+  
+  const titleStyle = {}
+
+
+  const handleTabItemClick = (title) => {
+    console.log(`Clicked  ${title.toLowerCase()}`)
+    navigate(`/reports/${title.toLowerCase()}`)
+  }
 
   /*TODO("find a better way to do this") */
 
@@ -53,6 +61,39 @@ const ReportsPage = () => {
   useEffect(() => {
     navigate("/reports/weekly");
   }, []);
+  const listOfTabItems = [
+    {
+      title : "Weekly",
+      titleStyle : titleStyle,
+      tabItemStyle: itemStyle,
+      onclick: handleTabItemClick,
+    }, 
+    {
+        title : "Monthly",
+        titleStyle : titleStyle,
+        tabItemStyle: itemStyle,
+        onclick: handleTabItemClick,
+      },
+      {
+        title : "Quarterly",
+        titleStyle : titleStyle,
+        tabItemStyle: itemStyle,
+        onclick: handleTabItemClick,
+      },
+      {
+        title : "Yearly",
+        titleStyle : titleStyle,
+        tabItemStyle: itemStyle,
+        onclick: handleTabItemClick,
+      },
+      {
+        title : "Custom",
+        titleStyle : titleStyle,
+        tabItemStyle: itemStyle,
+        onclick: handleTabItemClick,
+      }
+   
+  ];
 
   return (
     <div className="main-entry-page reports-page">
@@ -63,6 +104,7 @@ const ReportsPage = () => {
           <TabItemRail
             tabItemRailStyle={tabItemRailStyle}
             itemStyle={itemStyle}
+            listOfTabItems={listOfTabItems}
           />
         </div>
         <Outlet />

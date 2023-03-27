@@ -1,8 +1,10 @@
 import { useState } from "react"
 import InputContainer from "../../components/input-container.component"
 import "../../styles/sign-up-form.css"
+import CompanyLogo from "../../assets/pngtree-tree-logo.jpg"
 import CustomGeneralBtn from "../../components/custom-general-btn.component"
 import { Link } from "react-router-dom"
+
 
 
 const SignUpForm = () => {
@@ -49,7 +51,8 @@ const SignUpForm = () => {
     const inputStyle = {
         width:'99%',
         backgroundColor:'#F1F1F1',
-        border:'none'
+        border:'none',
+        padding: '8px 0px'
     }
 
     const inputContainerStyle = {
@@ -59,8 +62,12 @@ const SignUpForm = () => {
 
     return(
         <div className="sign-up-form">
-
+            
+            <div className="auth-header">
+                <img src={CompanyLogo} alt=""  className="company-logo-item"/>
             <p className="sign-up-form__Title">Let's Get Started</p>
+            </div>
+
 
             <InputContainer
                 labelTitle={"Full Name"}
@@ -83,7 +90,7 @@ const SignUpForm = () => {
             <InputContainer
                 labelTitle={"Password"}
                 value={passwordInput}
-                type={"text"}
+                type={"password"}
                 inputStyle={inputStyle}
                 inputContainerStyle={inputContainerStyle}
                 onInputChange={handlePasswordInput}
@@ -92,14 +99,14 @@ const SignUpForm = () => {
             <InputContainer
                 labelTitle={"Confirm Password"}
                 value={confirmPasswordInput}
-                type={"text"}
+                type={"password"}
                 inputStyle={inputStyle}
                 inputContainerStyle={inputContainerStyle}
                 onInputChange={handleConfirmedPasswordInput}
             />
 
             <p className="sign-up-form__TsC">
-                By Continuing you agree to <a href="#"><span>Terms & Conditions</span></a>
+                By Continuing you agree to our <a href="#"><span>Terms & Conditions </span></a>
                 and <a href="#"><span>Privacy Policy</span></a>
             </p>
 

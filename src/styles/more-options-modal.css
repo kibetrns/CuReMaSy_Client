@@ -1,0 +1,16 @@
+.options-container {
+    background-color: white;
+    border: 1px solid grey;
+    width: fit-content;
+    
+    
+}
+.options-item {
+    display: flex;
+    width: fit-content;
+    border-bottom: 1px solid grey;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 8px;
+    cursor: pointer;
+}

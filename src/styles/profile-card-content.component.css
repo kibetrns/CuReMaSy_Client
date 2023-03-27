@@ -1,0 +1,44 @@
+.profile-card-content {
+
+}
+
+.profile-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.personal-info-container {
+    margin-top: 1.5%;
+
+
+}
+
+.personal-info-container h4 {
+    margin: 0;
+}
+
+
+.single-personal-info-container {
+    display: flex;
+    align-items: center;
+}
+
+.single-account-info-container h4 {
+    margin: 0% 1%;
+}
+
+.single-other-info-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: self-start;
+}
+.single-other-info-container h4 {
+    margin: 0%;
+    padding: 0%;
+}
+
+.single-personal-info-container > span {
+    margin-right: 4%;
+}

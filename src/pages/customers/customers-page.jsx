@@ -7,73 +7,90 @@ import UserDetails from "../../components/user-details-card.component";
 import PaginationNav from "../../components/pagination-nav.component";
 import CustomGeneralBtn from "../../components/custom-general-btn.component";
 import SearchBar from "../../components/search-bar.component";
+import ProfileCardContent from "../../components/profile-card-content.component";
+import { useState } from "react";
+import MoreOptionsModal from "../../components/more-options-modal";
 
 
-const usersPage = () => {
-  const UserDetailsImageStyle = {
-    height: "48px",
-    width: "48px",
-    borderRadius: "50%",
-  };
-  const btnStyle = {
-    backgroundColor: "black",
-    transitionDuration: "0.4s",
-    display: "flex",
-    alignItems: "center",
-    cursor: "pointer",
-    borderRadius: "8px",
-    padding: "8px 16px",
-    color: "white",
-  };
+const CustomersPage = () => {
 
-  //TODO("do the styling when a particulat row is clicked")
-  const rowStyle = {};
+    const userDetailsImageStyle = {
+      height: "48px",
+      width: "48px",
+      borderRadius: "50%",
+    };
+    const btnStyle = {
+      backgroundColor: "black",
+      transitionDuration: "0.4s",
+      display: "flex",
+      alignItems: "center",
+      cursor: "pointer",
+      borderRadius: "8px",
+      padding: "8px 16px",
+      color: "white",
+    };
+  
+    //TODO("do the styling when a particulat row is clicked")
+    const rowStyle = {};
+  
 
-  const listOfTopusers = [
+  const listOfCustomers = [
     {
       id: 1,
-      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
       thirdInput: `Ksh ${8433}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 2,
 
-      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 8888,
       thirdInput: `Ksh ${6262}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 3,
 
-      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
       thirdInput: `Ksh ${6262}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
     {
       id: 4,
 
-      dp: <img src={DummyImage} style={UserDetailsImageStyle}></img>,
+      dp: <img src={DummyImage} style={userDetailsImageStyle}></img>,
       fullName: "Jane Doe",
       userName: "@janny",
       secondInput: 9999,
       thirdInput: `Ksh ${2241}`,
-      icon: <span class="material-symbols-outlined">more_vert</span>,
     },
   ];
 
-  const handleMoreVertClick = () => {
-    window.alert("clicked");
+  const [showMoreOptionsModal, setMoreOptionsModal] = useState(false);
+  const [selectedCustomerId, setselectedCustomerId] = useState(null);
+
+
+
+  const handleMoreVertClick = (userId) => {
+    setselectedCustomerId(userId);
+    setMoreOptionsModal(!showMoreOptionsModal);
   };
+
+
+  const handleOnDeleteClick = (itemId) => {
+    window.alert(itemId);
+  };
+
+  const handleOnEditClick = (itemId) => {
+    window.alert(itemId);
+  };
+
 
   const handleHeaderMoreVerticalClicked = () => {
     window.alert("clicked header more vert ..");
@@ -85,9 +102,10 @@ const usersPage = () => {
 
   const handleAddustomerClick =() => {
     window.alert("clicked");
-
-
   }
+
+
+
 
   return (
     <div className="main-entry-page users-page">
@@ -103,19 +121,11 @@ const usersPage = () => {
           style={btnStyle}
           onClick={handleAddustomerClick}
         />
-
-
         </div>
         <div className="users-refinment-container">
-            <div>
-                TODO
-            </div>
-  <SearchBar 
-  placeholder={"Search By Username"}/>
-</div>
-   
-
-     
+          <div>TODO</div>
+          <SearchBar placeholder={"Search By e-mail"} />
+        </div>
 
         <div className="users-page-main">
           <table className="users-table">
@@ -123,8 +133,8 @@ const usersPage = () => {
               <tr className="users-table-header-row">
                 <th></th>
                 <th>Name</th>
-                <th>Points</th>
-                <th>Total Amount</th>
+                <th>Earned Points</th>
+                <th>Total Purchase Amount</th>
                 <th>
                   <span
                     class="material-symbols-outlined"
@@ -134,8 +144,9 @@ const usersPage = () => {
                     more_vert
                   </span>
                 </th>
+                <th></th>
               </tr>
-              {listOfTopusers.map((user) => (
+              {listOfCustomers.map((user) => (
                 <tr key={user.id} style={rowStyle}>
                   <td>
                     <input type="checkbox" />
@@ -145,28 +156,45 @@ const usersPage = () => {
                       dp={user.dp}
                       fullName={user.fullName}
                       userName={user.userName}
-                      UserDetailsImageStyle={UserDetailsImageStyle}
+                      UserDetailsImageStyle={userDetailsImageStyle}
                       userId={user.id}
                       onClick={handleUserDetailClick}
                     />
                   </td>
                   <td>{user.secondInput}</td>
-                  <td>{user.thirdInput}</td>
-                  <td
-                    style={{ cursor: "pointer" }}
-                    onClick={handleMoreVertClick}
-                  >
-                    {user.icon}
+                  <td style={{fontWeight: "bold"}}>{user.thirdInput}</td>
+                  <td>
+                    <span
+                      class="material-symbols-outlined"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleMoreVertClick(user.id)}
+                    >
+                      more_vert
+                    </span>
+                  
+                    
                   </td>
+                  {selectedCustomerId === user.id && showMoreOptionsModal && (
+                    <MoreOptionsModal
+                      itemId={user.id}
+                      onDeleteClick={handleOnDeleteClick}
+                      onEditClick={handleOnEditClick}
+                    />
+                  )}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <PaginationNav />
+
+
+
+
+       
       </div>
     </div>
   );
 };
 
-export default usersPage;
+export default CustomersPage;

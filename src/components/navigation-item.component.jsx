@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../styles/navigation-item.component.css";
 
 const NavigationItem = ({
@@ -13,7 +14,8 @@ const NavigationItem = ({
   }
 
   return (  
-    <div className="navigation-item" onClick={handleClick}>
+    <NavLink  to={`/${title.toLowerCase()}`} className={({isActive}) => (isActive ? 'activeNavItem': 'inActiveNavItem')}>
+      <div className="navigation-item" onClick={handleClick}>
       <div className="navigation-item__main">
         <div className="navigation-item-icon">{icon}</div>
 
@@ -23,10 +25,17 @@ const NavigationItem = ({
         </div>
       </div>
 
-      <div className="navigation-item__bubble">
-        <div className="nav-item-bubble-container">{navItemAlertCount}</div>
-      </div>
+
+
+      {navItemAlertCount > 0 && (
+          <div className="navigation-item__bubble">
+            <div className="nav-item-bubble-container">{navItemAlertCount}</div>
+          </div>
+        )}
     </div>
+
+    </NavLink>
+    
   );
 };
 
